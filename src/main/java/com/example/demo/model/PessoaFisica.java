@@ -12,9 +12,6 @@ public class PessoaFisica {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPessoa;
 
-    @Column(unique = true, nullable = false, length = 11)
-    private String cpf;
-
     @Column(nullable = false)
     private String nome;
 
@@ -28,10 +25,6 @@ public class PessoaFisica {
         return idPessoa;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
     public String getNome() {
         return nome;
     }
@@ -42,10 +35,6 @@ public class PessoaFisica {
 
     public void setIdPessoa(Long idPessoa) {
         this.idPessoa = idPessoa;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public void setNome(String nome) {
