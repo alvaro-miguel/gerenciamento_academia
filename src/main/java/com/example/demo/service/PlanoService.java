@@ -27,4 +27,12 @@ public class PlanoService {
     public List<Plano> buscarPlanos(){
         return planoRepository.findAll();
     }
+
+    public void deletarPlano(Long id){
+        if(!this.planoRepository.existsById(id)){
+            throw new IllegalArgumentException("Plano inexistente");
+        }
+
+        planoRepository.deleteById(id);
+    }
 }
