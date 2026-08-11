@@ -17,7 +17,7 @@ public class PlanoController {
 
     @PostMapping
     public Plano cadastrarPlano(@RequestBody Plano plano){
-        return planoService.salvar(plano);
+        return planoService.salvarPlano(plano);
     }
 
     @GetMapping

@@ -14,8 +14,7 @@ public class PlanoService {
         this.planoRepository = planoRepository;
     }
 
-    public Plano salvar(Plano plano){
-
+    public Plano salvarPlano(Plano plano){
         if(plano.getIdPlano() != null && this.planoRepository.existsById(plano.getIdPlano())){
             throw new IllegalArgumentException("Plano já existe");
         }
@@ -27,6 +26,7 @@ public class PlanoService {
     public List<Plano> buscarPlanos(){
         return planoRepository.findAll();
     }
+
 
     public void deletarPlano(Long id){
         if(!this.planoRepository.existsById(id)){
