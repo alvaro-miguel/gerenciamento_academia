@@ -24,8 +24,8 @@ public class ProfessorController {
     public List<Professor> exibirProfessors(){
         return professorService.consultarProfessores();
     }
-    
-    @DeleteMapping
+
+    @DeleteMapping("/{id}")
     public void deletarProfessor(@PathVariable Long id){
         professorService.deletarProfessor(id);
     }
