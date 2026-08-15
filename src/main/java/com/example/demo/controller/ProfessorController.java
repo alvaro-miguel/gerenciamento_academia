@@ -21,7 +21,7 @@ public class ProfessorController {
     }
 
     @GetMapping
-    public List<Professor> exibirProfessors(){
+    public List<Professor> exibirProfessores(){
         return professorService.consultarProfessores();
     }
 

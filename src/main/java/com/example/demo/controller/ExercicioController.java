@@ -26,7 +26,7 @@ public class ExercicioController {
     }
 
     @DeleteMapping("/{id}")
-    public void deeletarExercicio(@PathVariable Long id){
+    public void deletarExercicio(@PathVariable Long id){
         exercicioService.deletarExercicio(id);
     }
 }
