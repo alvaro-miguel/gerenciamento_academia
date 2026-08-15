@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.model.ItemTreino;
 import com.example.demo.repository.ItemTreinoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ItemTreinoService {
     private final ItemTreinoRepository itemTreinoRepository;
 
@@ -13,7 +15,7 @@ public class ItemTreinoService {
     }
 
     public ItemTreino salvarItemTreino(ItemTreino itemTreino){
-        if(itemTreinoRepository.existsById(itemTreino.getIdItemTreino()) && itemTreino.getIdItemTreino() != null){
+        if(itemTreino.getIdItemTreino() != null && itemTreinoRepository.existsById(itemTreino.getIdItemTreino())){
             throw new IllegalArgumentException("ItemTreino já existe");
         }
         return itemTreinoRepository.save(itemTreino);

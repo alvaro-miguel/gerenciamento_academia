@@ -2,9 +2,11 @@ package com.example.demo.service;
 
 import com.example.demo.model.Professor;
 import com.example.demo.repository.ProfessorRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProfessorService {
     private final ProfessorRepository professorRepository;
 
@@ -16,7 +18,7 @@ public class ProfessorService {
     public Professor salvarProfessor(Professor professor){
 
         if(professor.getIdPessoa() != null && professorRepository.existsById(professor.getIdPessoa())){
-            throw new IllegalArgumentException("Proefssor já cadastrado");
+            throw new IllegalArgumentException("Professor já cadastrado");
         }
         return professorRepository.save(professor);
     }

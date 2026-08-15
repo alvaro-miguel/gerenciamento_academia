@@ -15,7 +15,7 @@ public class ItemTreinoController {
         this.itemTreinoService = itemTreinoService;
     }
 
-    @PostMapping
+    @PostMapping    
     public ItemTreino salvarItemTreino(@RequestBody ItemTreino itemTreino){
         return itemTreinoService.salvarItemTreino(itemTreino);
     }

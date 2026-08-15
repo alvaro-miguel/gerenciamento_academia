@@ -2,9 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.model.Exercicio;
 import com.example.demo.repository.ExercicioRepository;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
 public class ExercicioService {
 
     private final ExercicioRepository exercicioRepository;
@@ -14,7 +15,7 @@ public class ExercicioService {
     }
 
     public Exercicio salvarExercicio(Exercicio exercicio){
-        if(exercicioRepository.existsById(exercicio.getIdExercicio()) && exercicio.getIdExercicio() != null){
+        if(exercicio.getIdExercicio() != null && exercicioRepository.existsById(exercicio.getIdExercicio())){
             throw  new IllegalArgumentException("Exercicio já cadastrado");
         }
 
@@ -27,7 +28,7 @@ public class ExercicioService {
     }
 
 
-    public void deletarExercico(Long id){
+    public void deletarExercicio(Long id){
         if(!this.exercicioRepository.existsById(id)){
             throw new IllegalArgumentException("Exercicio inexistente");
         }
