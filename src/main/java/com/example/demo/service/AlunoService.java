@@ -67,7 +67,7 @@ public class AlunoService {
     }
 
 
-    public void atualizarCadastro(long idAluno, Aluno dadosNovos){
+    public void atualizarCadastro(Long idAluno, Aluno dadosNovos){
         Aluno alunoExistente = alunoRepository.findById(idAluno).orElseThrow(()
         -> new IllegalArgumentException("Aluno inexistente"));
 
