@@ -43,4 +43,12 @@ public class AlunoService {
     }
 
 
+    public void ativarMatricula(Long id){
+        Aluno aluno = alunoRepository.findById(id).orElseThrow(()
+        -> new IllegalArgumentException("Aluno inexistente"));
+        aluno.setStatusMatricula(true);
+        alunoRepository.save(aluno);
+    }
+
+
 }
