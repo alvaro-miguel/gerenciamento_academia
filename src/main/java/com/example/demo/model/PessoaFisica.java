@@ -18,6 +18,9 @@ public class PessoaFisica {
     @Column(nullable = false)
     private LocalDate dataNascimento;
 
+    @Column(nullable = true)
+    private String numeroCelular;
+
     public PessoaFisica(){
     }
 
@@ -33,6 +36,8 @@ public class PessoaFisica {
         return dataNascimento;
     }
 
+    public String getNumeroCelular() { return numeroCelular;}
+
     public void setIdPessoa(Long idPessoa) {
         this.idPessoa = idPessoa;
     }
@@ -44,4 +49,6 @@ public class PessoaFisica {
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
+    public void setNumeroCelular(String numeroCelular) { this.numeroCelular = numeroCelular; }
 }
