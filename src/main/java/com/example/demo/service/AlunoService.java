@@ -35,5 +35,12 @@ public class AlunoService {
         alunoRepository.deleteById(id);
     }
 
+    public void suspenderMatricula(Long id){
+        Aluno aluno = alunoRepository.findById(id).orElseThrow(()
+                -> new IllegalArgumentException("Aluno inexistente"));
+        aluno.setStatusMatricula(false);
+        alunoRepository.save(aluno);
+    }
+
 
 }
