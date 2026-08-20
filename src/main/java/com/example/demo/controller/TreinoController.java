@@ -4,6 +4,7 @@ import com.example.demo.model.Treino;
 import com.example.demo.service.TreinoService;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -28,6 +29,16 @@ public class TreinoController {
     @DeleteMapping("/{id}")
     public void deletarTreino(@PathVariable Long id){
         treinoService.deletarTreino(id);
+    }
+
+    @PostMapping("/montar_treino/{idAluno}/{idProfessor}")
+    public void criarTreino(@RequestBody Treino treino, @PathVariable Long idAluno, @PathVariable Long idProfessor){
+        treinoService.montarTreino(treino, idAluno, idProfessor);
+    }
+
+    @PatchMapping("/{idTreino}/renovar")
+    public void renovarVencimento(@PathVariable Long idTreino, @RequestBody LocalDate novaData){
+        treinoService.renovarVencimento(idTreino, novaData);
     }
 
 
