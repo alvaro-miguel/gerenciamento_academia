@@ -13,9 +13,9 @@ public class AlunoService {
     private final AlunoRepository alunoRepository;
     private final PlanoRepository planoRepository;
 
-    public AlunoService(AlunoRepository alunoRepository) {
+    public AlunoService(AlunoRepository alunoRepository, PlanoRepository planoRepository) {
         this.alunoRepository = alunoRepository;
-        planoRepository = null;
+        this.planoRepository = planoRepository;
     }
 
     public Aluno salvarAluno(Aluno aluno){
