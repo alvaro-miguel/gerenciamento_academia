@@ -25,8 +25,13 @@ public class ExercicioController {
         return exercicioService.retornarExercicios();
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarExercicio(@PathVariable Long id){
-        exercicioService.deletarExercicio(id);
+    @DeleteMapping("/{idExercicio}")
+    public void deletarExercicio(@PathVariable Long idExercicio){
+        exercicioService.deletarExercicio(idExercicio);
+    }
+
+    @PutMapping("/{idExercicio}")
+    public void atualizarExercicio(@PathVariable Long idExercicio, @RequestBody Exercicio exercicio){
+        exercicioService.atualizarExercicio(idExercicio, exercicio);
     }
 }

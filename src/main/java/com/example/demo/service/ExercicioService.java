@@ -35,4 +35,14 @@ public class ExercicioService {
 
         this.exercicioRepository.deleteById(id);
     }
+
+    public void atualizarExercicio(Long idExercicio, Exercicio novosDados){
+        Exercicio exercicioExistente = exercicioRepository.findById(idExercicio).orElseThrow(()
+                -> new IllegalArgumentException("Exercicio inexistente"));
+
+        exercicioExistente.setNomeExercicio(novosDados.getNomeExercicio());
+        exercicioExistente.setGrupoMuscular(novosDados.getGrupoMuscular());
+
+        exercicioRepository.save(exercicioExistente);
+    }
 }
