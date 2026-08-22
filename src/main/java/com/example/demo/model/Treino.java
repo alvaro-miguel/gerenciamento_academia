@@ -15,6 +15,9 @@ public class Treino {
     @Column(nullable = false)
     private LocalDate dataFim;
 
+    @Column(nullable = false)
+    private String nomeTreino;
+
     @ManyToOne
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
@@ -46,6 +49,8 @@ public class Treino {
         return professor;
     }
 
+    public String getNomeTreino() {return nomeTreino;}
+
     public void setIdTreino(Long idTreino) {
         this.idTreino = idTreino;
     }
@@ -65,4 +70,6 @@ public class Treino {
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
+
+    public void setNomeTreino(String nomeTreino) {this.nomeTreino = nomeTreino;}
 }
