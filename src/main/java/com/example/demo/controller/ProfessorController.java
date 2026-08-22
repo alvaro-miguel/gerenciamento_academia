@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.Aluno;
 import com.example.demo.model.Professor;
+import com.example.demo.model.Treino;
 import com.example.demo.service.ProfessorService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,8 +27,18 @@ public class ProfessorController {
         return professorService.consultarProfessores();
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarProfessor(@PathVariable Long id){
-        professorService.deletarProfessor(id);
+    @DeleteMapping("/{idProfessor}")
+    public void deletarProfessor(@PathVariable Long idProfessor){
+        professorService.deletarProfessor(idProfessor);
+    }
+
+    @GetMapping("/{idProfessor/alunos")
+    public List<Aluno> consultarTreinos(@PathVariable Long idProfessor){
+        return professorService.exibirAlunos(idProfessor);
+    }
+
+    @PutMapping("/{idProfessor}")
+    public void editarProfessor(@PathVariable Long idProfessor, @RequestBody Professor novosDados){
+        professorService.editarProfessor(idProfessor, novosDados);
     }
 }
