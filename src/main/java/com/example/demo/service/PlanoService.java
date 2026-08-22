@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Plano;
+import com.example.demo.model.Professor;
 import com.example.demo.repository.PlanoRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -33,5 +34,15 @@ public class PlanoService {
         }
 
         planoRepository.deleteById(id);
+    }
+    public void editarPlano(Long idPlano, Plano novosDados){
+        Plano planoExistente =planoRepository.findById(idPlano).orElseThrow(()
+                ->  new IllegalArgumentException("Plano inexistente"));
+
+        planoExistente.setNomePlano(novosDados.getNomePlano());
+        planoExistente.setDiasPermitidos(novosDados.getDiasPermitidos());
+        planoExistente.setValorMensalidade(novosDados.getValorMensalidade());
+
+        planoRepository.save(planoExistente);
     }
 }

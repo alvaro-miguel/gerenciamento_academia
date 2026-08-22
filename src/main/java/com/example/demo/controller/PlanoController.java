@@ -25,8 +25,13 @@ public class PlanoController {
         return planoService.buscarPlanos();
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarPlano(@PathVariable Long id){
-        planoService.deletarPlano(id);
+    @DeleteMapping("/{idPlano}")
+    public void deletarPlano(@PathVariable Long idPlano){
+        planoService.deletarPlano(idPlano);
+    }
+
+    @PutMapping("/{idPlano}")
+    public void editarPlano(@PathVariable Long idPlano, @RequestBody Plano novosDados){
+        planoService.editarPlano(idPlano, novosDados);
     }
 }
