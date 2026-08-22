@@ -25,8 +25,18 @@ public class ItemTreinoController {
         return itemTreinoService.listarItemTreino();
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarItemTreino(@PathVariable Long id){
-        itemTreinoService.deletarItemTreino(id);
+    @DeleteMapping("/{idItem}/deletar")
+    public void deletarItemTreino(@PathVariable Long idItem){
+        itemTreinoService.deletarItemTreino(idItem);
+    }
+
+    @PatchMapping("/{idItem}/carga")
+    public void atulizarCarga(@PathVariable Long idItem, @RequestBody ItemTreino itemTreino){
+        itemTreinoService.atualizarCarga(idItem, itemTreino);
+    }
+
+    @PatchMapping("/{idItem}/reps")
+    public void atulizarReps(@PathVariable Long idItem, @RequestBody ItemTreino itemTreino){
+        itemTreinoService.atualizarReps(idItem, itemTreino);
     }
 }

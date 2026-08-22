@@ -32,4 +32,20 @@ public class ItemTreinoService {
 
         itemTreinoRepository.deleteById(id);
     }
+
+    public void atualizarCarga(Long idItem, ItemTreino novosDados){
+        ItemTreino itemExistente = itemTreinoRepository.findById(idItem).orElseThrow(() ->
+                new IllegalArgumentException("Item de treino inexistente"));
+
+        itemExistente.setCarga(novosDados.getCarga());
+        itemTreinoRepository.save(itemExistente);
+    }
+
+    public void atualizarReps(Long idItem, ItemTreino novosDados){
+        ItemTreino itemExistente = itemTreinoRepository.findById(idItem).orElseThrow(() ->
+                new IllegalArgumentException("Item de treino inexistente"));
+
+        itemExistente.setReps(novosDados.getReps());
+        itemTreinoRepository.save(itemExistente);
+    }
 }
